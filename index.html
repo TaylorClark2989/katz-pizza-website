@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Katz Pizza & Carryout | Verona, OH</title>
+  <meta name="description" content="Katz Pizza & Carryout in Verona, Ohio. View our menu, lunch specials, food photos, and order online through Clover." />
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0f0f10;
+      color: #fff;
+      line-height: 1.5;
+    }
+    a { text-decoration: none; color: inherit; }
+    .container { width: min(1200px, 92%); margin: 0 auto; }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(10,10,10,.95);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(8px);
+    }
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      gap: 16px;
+    }
+    .brand h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 900;
+    }
+    .brand p {
+      margin: 4px 0 0;
+      color: #c7c7c7;
+      font-size: .95rem;
+    }
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-weight: 700;
+      font-size: .95rem;
+    }
+    nav a:hover { color: #ff6b6b; }
+
+    .hero {
+      background:
+        radial-gradient(circle at top, rgba(220,38,38,.25), transparent 35%),
+        linear-gradient(to bottom, #4a0d0d, #101010 55%, #101010);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 36px;
+      align-items: center;
+      padding: 70px 0;
+    }
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 999px;
+      background: rgba(255,255,255,.04);
+      color: #ffb3b3;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: .72rem;
+      font-weight: 800;
+    }
+    .hero h2 {
+      font-size: clamp(2.2rem, 5vw, 4.7rem);
+      line-height: 1.02;
+      margin: 18px 0 16px;
+      font-weight: 900;
+    }
+    .hero p {
+      color: #e0e0e0;
+      font-size: 1.08rem;
+      max-width: 650px;
+    }
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 22px 0 26px;
+    }
+    .badge {
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.05);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: #dadada;
+      font-weight: 800;
+    }
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 12px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 16px;
+      font-weight: 800;
+      transition: .2s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: #dc2626;
+      color: #fff;
+    }
+    .btn-primary:hover { background: #ef4444; }
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,.15);
+      background: rgba(255,255,255,.03);
+      color: #fff;
+    }
+    .btn-facebook {
+      border: 1px solid rgba(239,68,68,.3);
+      background: rgba(220,38,38,.12);
+      color: #ffe4e4;
+    }
+    .hero-info {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+    .card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 24px;
+      padding: 18px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.25);
+    }
+    .card small {
+      display: block;
+      color: #ffb3b3;
+      font-size: .75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      margin-bottom: 8px;
+    }
+    .hero-photos {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .hero-photos img,
+    .gallery img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: 0 16px 36px rgba(0,0,0,.35);
+    }
+    .hero-photos img { height: 250px; }
+    .hero-photos img:nth-child(2),
+    .hero-photos img:nth-child(4) {
+      margin-top: 28px;
+    }
+
+    section { padding: 78px 0; }
+    .section-title small {
+      display: block;
+      color: #ffb3b3;
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .section-title h3 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+    }
+
+    .specials-grid,
+    .menu-grid,
+    .gallery,
+    .contact-grid {
+      display: grid;
+      gap: 22px;
+    }
+    .specials-grid { grid-template-columns: repeat(4, 1fr); margin-top: 26px; }
+    .menu-grid { grid-template-columns: repeat(2, 1fr); margin-top: 30px; }
+    .gallery { grid-template-columns: repeat(3, 1fr); margin-top: 28px; }
+    .contact-grid { grid-template-columns: 1.1fr .9fr; }
+
+    .menu-section,
+    .special-card,
+    .contact-box,
+    .map-box {
+      background: #171718;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 28px;
+      padding: 24px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.25);
+    }
+
+    .special-card h4,
+    .menu-section h4,
+    .contact-box h4 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #ffb3b3;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 18px;
+      margin-top: 12px;
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    th, td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      text-align: left;
+      font-size: .95rem;
+    }
+    th {
+      background: rgba(255,255,255,.04);
+      color: #ddd;
+    }
+
+    .menu-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .menu-item {
+      background: rgba(255,255,255,.04);
+      border-radius: 18px;
+      padding: 14px 16px;
+      border: 1px solid rgba(255,255,255,.05);
+    }
+    .menu-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 1rem;
+    }
+    .menu-item span {
+      color: #ddd;
+      font-size: .94rem;
+    }
+
+    .menu-muted {
+      color: #cfcfcf;
+      font-size: .95rem;
+      margin-top: 16px;
+    }
+
+    .contact-section {
+      background: rgba(127, 29, 29, .35);
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .contact-box p { color: #ddd; }
+    iframe {
+      width: 100%;
+      height: 430px;
+      border: 0;
+      border-radius: 24px;
+    }
+
+    footer {
+      text-align: center;
+      color: #9a9a9a;
+      padding: 28px 18px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      font-size: .95rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .menu-grid,
+      .contact-grid,
+      .specials-grid,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+      .hero-photos img:nth-child(2),
+      .hero-photos img:nth-child(4) {
+        margin-top: 0;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .topbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        gap: 12px;
+        font-size: .88rem;
+      }
+      .hero-info,
+      .hero-photos {
+        grid-template-columns: 1fr;
+      }
+      .hero-photos img { height: 220px; }
+      section { padding: 60px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <h1>Katz Pizza & Carryout</h1>
+        <p>144 East Main St. Verona, OH • 937-551-3101</p>
+      </div>
+      <nav>
+        <a href="#menu">Menu</a>
+        <a href="#specials">Specials</a>
+        <a href="#gallery">Photos</a>
+        <a href="#find-us">Find Us</a>
+        <a href="#contact">Order</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Pizza • Wings • Subs • Specials</span>
+        <h2>Local pizza, carryout, and favorites in Verona.</h2>
+        <p>Katz Pizza & Carryout serves pizza, wings, salads, sandwiches, tacos, sides, and lunch specials in a casual local spot.</p>
+
+        <div class="badges">
+          <span class="badge">Fresh Pizza</span>
+          <span class="badge">Carryout</span>
+          <span class="badge">Weekly Specials</span>
+          <span class="badge">Order Online</span>
+        </div>
+
+        <div class="btn-row">
+          <a class="btn btn-primary" href="https://www.clover.com/online-ordering/NA0BF7EMR8ZH1" target="_blank">Order Online</a>
+          <a class="btn btn-secondary" href="tel:9375513101">Call 937-551-3101</a>
+          <a class="btn btn-facebook" href="https://www.facebook.com/people/Katz-Pizza-Carryout-LLC/61556007509935/?sk=photos" target="_blank">View Facebook</a>
+        </div>
+
+        <div class="hero-info">
+          <div class="card">
+            <small>Hours</small>
+            Tuesday 11–9pm<br>
+            Wednesday–Friday 11–10pm<br>
+            Saturday 3–10pm
+          </div>
+          <div class="card">
+            <small>Order Options</small>
+            Carryout<br>
+            Call-in orders<br>
+            Online ordering through Clover
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-photos">
+        <img src="https://raw.githubusercontent.com/TaylorClark2989/katz-pizza-website/main/images/pizza.jpg" alt="Katz Pizza specialty pizza">
+        <img src="https://raw.githubusercontent.com/TaylorClark2989/katz-pizza-website/main/images/tenderloin.jpg" alt="Katz Pizza sandwich">
+        <img src="https://raw.githubusercontent.com/TaylorClark2989/katz-pizza-website/main/images/sandwiches.jpg" alt="Katz Pizza sandwiches ready to serve">
+        <img src="https://raw.githubusercontent.com/TaylorClark2989/katz-pizza-website/main/images/darts.jpg" alt="Katz Pizza dining area with dart boards">
+      </div>
+    </div>
+  </section>
+
+  <section id="specials">
+    <div class="container">
+      <div class="section-title">
+        <small>Lunch Specials</small>
+        <h3>Weekly deals</h3>
+      </div>
+
+      <div class="specials-grid">
+        <div class="special-card">
+          <h4>Tuesday</h4>
+          <p><strong>Tacos — $2.50 each</strong></p>
+        </div>
+        <div class="special-card">
+          <h4>Wednesday</h4>
+          <p><strong>Sub or Hoagie — $10</strong></p>
+          <p>Choice of fries, onion rings, or breadsticks</p>
+        </div>
+        <div class="special-card">
+          <h4>Thursday</h4>
+          <p><strong>Burger — $10</strong></p>
+          <p>Choice of fries, onion rings, or breadsticks</p>
+        </div>
+        <div class="special-card">
+          <h4>Friday</h4>
+          <p><strong>Tenderloin — $10</strong></p>
+          <p>Choice of fries, onion rings, or breadsticks</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu" style="background:#121213;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);">
+    <div class="container">
+      <div class="section-title">
+        <small>Full Menu</small>
+        <h3>Katz favorites</h3>
+      </div>
+
+      <div class="menu-grid">
+        <div class="menu-section">
+          <h4>Pizza</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>Style</th>
+                <th>9 in</th>
+                <th>12 in</th>
+                <th>16 in</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Cheese</td><td>$8.50</td><td>$12.50</td><td>$15.50</td></tr>
+              <tr><td>Single Topping</td><td>$10.00</td><td>$13.50</td><td>$17.50</td></tr>
+              <tr><td>Two Topping</td><td>$11.50</td><td>$15.50</td><td>$18.50</td></tr>
+              <tr><td>Three Topping</td><td>$13.00</td><td>$18.50</td><td>$20.00</td></tr>
+              <tr><td>Specialty</td><td>$14.50</td><td>$19.99</td><td>$22.99</td></tr>
+            </tbody>
+          </table>
+          <p class="menu-muted">Specialty pizzas include Meat Lovers, Deluxe, Chicken Bacon Ranch, BBQ, Buffalo Chicken, Mashed Potato, and Taco pizza (Tuesdays only).</p>
+          <p class="menu-muted">Toppings available: bacon, sausage, pepperoni, pineapple, black olives, green olives, banana peppers, green peppers, mushrooms, onions, ham, chicken, lettuce, mayonnaise, and tomato.</p>
+        </div>
+
+        <div class="menu-section">
+          <h4>Wings, Salads & Drinks</h4>
+          <div class="menu-list">
+            <div class="menu-item"><strong>Traditional Wings</strong><span>7 for $11.00</span></div>
+            <div class="menu-item"><strong>Boneless Wings</strong><span>1/2 lb. — $9.99</span></div>
+            <div class="menu-item"><strong>Wing Sauces</strong><span>Garlic Parm, Buffalo, Honey Mustard, Ranch & BBQ</span></div>
+            <div class="menu-item"><strong>Side Salad</strong><span>$5.00</span></div>
+            <div class="menu-item"><strong>Chef Salad</strong><span>$7.50</span></div>
+            <div class="menu-item"><strong>Bottled Water</strong><span>$1.00</span></div>
+            <div class="menu-item"><strong>Bottled Pop, Gatorade, Tea</strong><span>$2.75</span></div>
+          </div>
+        </div>
+
+        <div class="menu-section">
+          <h4>Subs & Sandwiches</h4>
+          <div class="menu-list">
+            <div class="menu-item"><strong>8in Italian Sub — $7.99</strong><span>3 meat blend, lettuce, tomato, provolone, Italian spice</span></div>
+            <div class="menu-item"><strong>Chicken Sandwich — $7.99</strong><span>Mayo, lettuce & pickles</span></div>
+            <div class="menu-item"><strong>Buffalo Chicken Sandwich — $7.99</strong><span>Tomato, ranch, lettuce & onions</span></div>
+            <div class="menu-item"><strong>8in Hoagie Pizza Sub — $7.99</strong><span>Marinara, provolone, banana peppers</span></div>
+            <div class="menu-item"><strong>8in Hoagie Deluxe — $7.99</strong><span>Lettuce, tomato, mayo, provolone</span></div>
+            <div class="menu-item"><strong>8in Mushroom Hoagie — $7.99</strong><span>Provolone, banana peppers, mushroom sauce</span></div>
+            <div class="menu-item"><strong>Hamburger — $6.50</strong><span>Add cheese + $0.50 • Lettuce, tomato & mayo</span></div>
+            <div class="menu-item"><strong>BBQ Bacon Burger — $8.50</strong><span>Add cheese + $0.50 • Onions, BBQ & bacon</span></div>
+            <div class="menu-item"><strong>Philly Cheesesteak Sub — $7.99</strong><span>Local favorite</span></div>
+            <div class="menu-item"><strong>Pork Tenderloin — $8.50</strong><span>Add cheese + $0.50 • Onion, pickle, tomato, lettuce, mayo, ketchup & mustard</span></div>
+          </div>
+        </div>
+
+        <div class="menu-section">
+          <h4>Sides</h4>
+          <div class="menu-list">
+            <div class="menu-item"><strong>Garlic Cheese Dippers</strong><span>9in $8.00 • 12in $10.00 • 16in $12.00</span></div>
+            <div class="menu-item"><strong>Cinnamon Dippers</strong><span>9in $7.00 • 12in $9.00 • 16in $11.00</span></div>
+            <div class="menu-item"><strong>French Fries</strong><span>$6.00 • add bacon & cheese + $2.00</span></div>
+            <div class="menu-item"><strong>Onion Rings</strong><span>$6.50</span></div>
+            <div class="menu-item"><strong>Fried Pickles w/ Ranch</strong><span>$6.00</span></div>
+            <div class="menu-item"><strong>Sidewinder Fries</strong><span>$6.50 • add bacon & cheese + $2.00</span></div>
+            <div class="menu-item"><strong>Mozzarella Sticks</strong><span>5 for $7.00</span></div>
+            <div class="menu-item"><strong>Bread Sticks</strong><span>3 for $5.00 or 6 for $8.00</span></div>
+            <div class="menu-item"><strong>Pretzel Bites</strong><span>10 for $5.50 • with cheese $6.00</span></div>
+            <div class="menu-item"><strong>Hot Pepper Cheese Balls</strong><span>$7.00</span></div>
+            <div class="menu-item"><strong>Nachos</strong><span>$2.50</span></div>
+            <div class="menu-item"><strong>Mac & Cheese Bites</strong><span>$7.00</span></div>
+            <div class="menu-item"><strong>Jalepeno Poppers</strong><span>$7.00</span></div>
+            <div class="menu-item"><strong>Bavarian Pretzel</strong><span>$8.50</span></div>
+            <div class="menu-item"><strong>Icecream</strong><span>$2.00 cup or cone</span></div>
+            <div class="menu-item"><strong>Tacos</strong><span>$2.50 each (Tuesdays only)</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="container">
+      <div class="section-title">
+        <small>Food & Atmosphere</small>
+        <h3>See what’s cooking at Katz</h3>
+      </div>
+
+      <div class="gallery">
+        <img src="https://raw.githubusercontent.com/TaylorClark2989/katz-pizza-website/main/images/pizza.jpg" alt="Katz pizza">
+        <img src="https://raw.githubusercontent.com/TaylorClark2989/katz-pizza-website/main/images/tenderloin.jpg" alt="Katz tenderloin sandwich">
+        <img src="https://raw.githubusercontent.com/TaylorClark2989/katz-pizza-website/main/images/tacos.jpg" alt="Katz tacos">
+        <img src="https://raw.githubusercontent.com/TaylorClark2989/katz-pizza-website/main/images/philly.jpg" alt="Katz philly cheesesteak">
+        <img src="https://raw.githubusercontent.com/TaylorClark2989/katz-pizza-website/main/images/sandwiches.jpg" alt="Katz sandwiches">
+        <img src="https://raw.githubusercontent.com/TaylorClark2989/katz-pizza-website/main/images/darts.jpg" alt="Katz interior">
+      </div>
+    </div>
+  </section>
+
+  <section id="find-us">
+    <div class="container contact-grid">
+      <div class="contact-box">
+        <div class="section-title">
+          <small>Visit Katz</small>
+          <h3>Find us in Verona</h3>
+        </div>
+        <p>Stop in for lunch specials, pizza night, wings, and local favorites. Use the map button for directions or call ahead for carryout.</p>
+        <div class="btn-row">
+          <a class="btn btn-secondary" href="https://maps.google.com/?q=144+East+Main+St,+Verona,+OH" target="_blank">Open Map</a>
+          <a class="btn btn-primary" href="https://www.clover.com/online-ordering/NA0BF7EMR8ZH1" target="_blank">Start Online Order</a>
+        </div>
+      </div>
+      <div class="map-box">
+        <iframe
+          src="https://maps.google.com/maps?q=144%20East%20Main%20St%2C%20Verona%2C%20OH&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <div class="container" style="text-align:center;">
+      <div class="section-title">
+        <small>Order Now</small>
+        <h3>Ready for Katz Pizza & Carryout?</h3>
+      </div>
+      <p style="max-width:720px;margin:16px auto 0;color:#ddd;font-size:1.05rem;">
+        Order online through Clover, call in your order for carryout, or check out Katz Pizza photos and updates on Facebook.
+      </p>
+      <div class="btn-row" style="justify-content:center;margin-top:28px;">
+        <a class="btn btn-primary" href="https://www.clover.com/online-ordering/NA0BF7EMR8ZH1" target="_blank">Order Through Clover</a>
+        <a class="btn btn-secondary" href="tel:9375513101">Call 937-551-3101</a>
+        <a class="btn btn-facebook" href="https://www.facebook.com/people/Katz-Pizza-Carryout-LLC/61556007509935/?sk=photos" target="_blank">Katz on Facebook</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Katz Pizza & Carryout • Verona, Ohio
+  </footer>
+</body>
+</html>
