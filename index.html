@@ -1,68 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Katz Pizza & Carryout | Verona Ohio</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#0f0f10;
+color:white;
+}
+
+header{
+background:#111;
+padding:15px 25px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #333;
+}
+
+nav a{
+margin-left:20px;
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+nav a:hover{
+color:#ff4d4d;
+}
+
+.hero{
+padding:60px 25px;
+background:linear-gradient(#3d0000,#111);
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:20px;
+max-width:700px;
+}
+
+.buttons{
+margin-top:20px;
+}
+
+.btn{
+display:inline-block;
+padding:12px 18px;
+margin-right:10px;
+border-radius:8px;
+font-weight:bold;
+}
+
+.order{
+background:#e11;
+}
+
+.call{
+border:1px solid white;
+}
+
+.fb{
+background:#8a0000;
+}
+
+.section{
+padding:60px 25px;
+}
+
+h2{
+font-size:36px;
+margin-bottom:20px;
+}
+
+.menu-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+}
+
+.card{
+background:#181818;
+padding:20px;
+border-radius:10px;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+}
+
+.gallery img{
+width:100%;
+border-radius:10px;
+}
+
+.events{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+footer{
+padding:30px;
+text-align:center;
+border-top:1px solid #333;
+margin-top:40px;
+}
+
+@media(max-width:900px){
+
+.menu-grid{
+grid-template-columns:1fr;
+}
+
+.gallery{
+grid-template-columns:1fr;
+}
+
+.events{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:34px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div>
+<strong>Katz Pizza & Carryout</strong><br>
+144 East Main St • Verona OH
+</div>
+
+<nav>
+<a href="#menu">Menu</a>
+<a href="#events">Events</a>
+<a href="#photos">Photos</a>
+<a href="#contact">Order</a>
+</nav>
+
+</header>
+
 <section class="hero">
-  <div class="container hero-grid">
 
-    <div>
-      <span class="eyebrow">Pizza • Wings • Beer • Events</span>
+<h1>Pizza, cold beer, music, and good times in Verona.</h1>
 
-      <h2>Pizza, cold beer, music, and good times in Verona.</h2>
+<p>
+Fresh pizza, cold beer, karaoke, live music, pull tabs, darts,
+and the Queen of Hearts drawing every Wednesday at 7:30.
+</p>
 
-      <p>
-        Fresh pizza, cold beer, karaoke, live music, pull tabs, darts,
-        and the Queen of Hearts drawing every Wednesday at 7:30.
-      </p>
+<div class="buttons">
 
-      <div class="badges">
-        <span class="badge">Fresh Pizza</span>
-        <span class="badge">Cold Beer</span>
-        <span class="badge">Live Music</span>
-        <span class="badge">Karaoke</span>
-        <span class="badge">Queen of Hearts</span>
-        <span class="badge">Order Online</span>
-      </div>
+<a class="btn order"
+href="https://www.clover.com/online-ordering/NA0BF7EMR8ZH1"
+target="_blank">
+Order Online
+</a>
 
-      <div class="btn-row">
-        <a class="btn btn-primary"
-           href="https://www.clover.com/online-ordering/NA0BF7EMR8ZH1"
-           target="_blank">
-           Order Online
-        </a>
+<a class="btn call"
+href="tel:9375513101">
+Call 937-551-3101
+</a>
 
-        <a class="btn btn-secondary" href="tel:9375513101">
-          Call 937-551-3101
-        </a>
+<a class="btn fb"
+href="https://www.facebook.com/people/Katz-Pizza-Carryout-LLC/61556007509935/?sk=photos"
+target="_blank">
+Facebook
+</a>
 
-        <a class="btn btn-facebook"
-           href="https://www.facebook.com/people/Katz-Pizza-Carryout-LLC/61556007509935/?sk=photos"
-           target="_blank">
-           View Facebook
-        </a>
-      </div>
+</div>
 
-      <div class="hero-info">
-
-        <div class="card">
-          <small>Hours</small>
-          Tuesday 11–9pm<br>
-          Wednesday–Friday 11–10pm<br>
-          Saturday 3–10pm
-        </div>
-
-        <div class="card">
-          <small>At Katz</small>
-          Cold beer<br>
-          Live music & karaoke<br>
-          Queen of Hearts Wednesdays
-        </div>
-
-      </div>
-    </div>
-
-    <div class="hero-photos">
-      <img src="pizza.jpg" alt="Katz Pizza specialty pizza">
-      <img src="tenderloin.jpg" alt="Katz tenderloin sandwich">
-      <img src="sandwiches.jpg" alt="Katz sandwiches">
-      <img src="tacos.jpg" alt="Katz tacos">
-    </div>
-
-  </div>
 </section>
+
+<section id="events" class="section">
+
+<h2>Weekly Specials & Events</h2>
+
+<div class="events">
+
+<div class="card">
+<h3>Tuesday</h3>
+Tacos — $2.50 each
+</div>
+
+<div class="card">
+<h3>Wednesday</h3>
+Sub or Hoagie $10<br>
+Choice of fries, onion rings, or breadsticks
+</div>
+
+<div class="card">
+<h3>Thursday</h3>
+Burger $10<br>
+Choice of fries, onion rings, or breadsticks
+</div>
+
+<div class="card">
+<h3>Friday</h3>
+Tenderloin $10<br>
+Choice of fries, onion rings, or breadsticks
+</div>
+
+<div class="card">
+<h3>Wednesday Night</h3>
+Queen of Hearts Drawing<br>
+7:30 PM
+</div>
+
+<div class="card">
+<h3>At Katz</h3>
+Cold beer • Karaoke<br>
+Live music • Pull tabs • Darts
+</div>
+
+</div>
+
+</section>
+
+<section id="menu" class="section">
+
+<h2>Menu</h2>
+
+<div class="menu-grid">
+
+<div class="card">
+
+<h3>Pizza</h3>
+
+Cheese<br>
+9" $8.50<br>
+12" $12.50<br>
+16" $15.50<br><br>
+
+Single Topping<br>
+9" $10.00<br>
+12" $13.50<br>
+16" $17.50<br><br>
+
+Two Topping<br>
+9" $11.50<br>
+12" $15.50<br>
+16" $18.50<br><br>
+
+Three Topping<br>
+9" $13.00<br>
+12" $18.50<br>
+16" $20.00
+
+</div>
+
+<div class="card">
+
+<h3>Wings & Salads</h3>
+
+Traditional Wings<br>
+7 for $11.00<br><br>
+
+Boneless Wings<br>
+1/2 lb $9.99<br><br>
+
+Side Salad $5<br>
+Chef Salad $7.50
+
+</div>
+
+<div class="card">
+
+<h3>Subs & Sandwiches</h3>
+
+Italian Sub $7.99<br>
+Chicken Sandwich $7.99<br>
+Buffalo Chicken $7.99<br>
+Hoagie Pizza Sub $7.99<br>
+Hoagie Deluxe $7.99<br>
+Philly Cheesesteak $7.99<br>
+Pork Tenderloin $8.50
+
+</div>
+
+<div class="card">
+
+<h3>Sides</h3>
+
+French Fries $6<br>
+Onion Rings $6.50<br>
+Mozzarella Sticks $7<br>
+Breadsticks $5 / $8<br>
+Pretzel Bites $5.50<br>
+Mac & Cheese Bites $7<br>
+Jalapeno Poppers $7
+
+</div>
+
+</div>
+
+</section>
+
+<section id="photos" class="section">
+
+<h2>Food & Atmosphere</h2>
+
+<div class="gallery">
+
+<img src="pizza.jpg">
+<img src="tenderloin.jpg">
+<img src="sandwiches.jpg">
+<img src="tacos.jpg">
+<img src="philly.jpg">
+
+</div>
+
+</section>
+
+<section id="contact" class="section">
+
+<h2>Find Us</h2>
+
+<p>
+144 East Main St<br>
+Verona, Ohio
+</p>
+
+<p>
+Tuesday 11-9<br>
+Wednesday-Friday 11-10<br>
+Saturday 3-10
+</p>
+
+<a class="btn order"
+href="https://www.clover.com/online-ordering/NA0BF7EMR8ZH1"
+target="_blank">
+Order Online
+</a>
+
+</section>
+
+<footer>
+
+Katz Pizza & Carryout • Verona Ohio
+
+</footer>
+
+</body>
+</html>
